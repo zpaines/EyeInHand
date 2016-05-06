@@ -1,0 +1,62 @@
+\hypertarget{class_interface}{}\section{Interface Class Reference}
+\label{class_interface}\index{Interface@{Interface}}
+
+
+Driver class for the R\+E\+MS Eye in Hand Registration Package.  
+
+
+
+
+{\ttfamily \#include $<$Interface.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_interface_a2dd5511ed0b74d5b99514602a30f32cd}{Menu\+Option} \{ \\*
+{\bfseries Get\+Frame} = 1, 
+{\bfseries Load\+Frame} = 2, 
+{\bfseries Load\+Mesh} = 3, 
+{\bfseries Register} = 4, 
+\\*
+{\bfseries Calibrate} = 5, 
+{\bfseries Visualize} = 6, 
+{\bfseries Cloud\+To\+File} = 7, 
+{\bfseries Tran\+Cloud\+To\+File} = 8, 
+\\*
+{\bfseries Downsample\+Cloud} = 9, 
+{\bfseries Remove\+Plane} = 10, 
+{\bfseries Quit} = 11
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_interface_a2dd5511ed0b74d5b99514602a30f32cd}{Menu\+Option} \hyperlink{class_interface_aec153e75a335f7dde55ebf5ac6d878f4}{get\+Command} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Driver class for the R\+E\+MS Eye in Hand Registration Package. 
+
+This class handles all user interface and farms out functionality to other classes. It was designed to be fairly modular and easily extendible s.\+t. more menu options and functionality could be added without major code changes. 
+
+\subsection{Member Enumeration Documentation}
+\index{Interface@{Interface}!Menu\+Option@{Menu\+Option}}
+\index{Menu\+Option@{Menu\+Option}!Interface@{Interface}}
+\subsubsection[{\texorpdfstring{Menu\+Option}{MenuOption}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Interface\+::\+Menu\+Option}}\hypertarget{class_interface_a2dd5511ed0b74d5b99514602a30f32cd}{}\label{class_interface_a2dd5511ed0b74d5b99514602a30f32cd}
+E\+N\+UM defining all menu choices for the user interface. 
+
+\subsection{Member Function Documentation}
+\index{Interface@{Interface}!get\+Command@{get\+Command}}
+\index{get\+Command@{get\+Command}!Interface@{Interface}}
+\subsubsection[{\texorpdfstring{get\+Command()}{getCommand()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interface\+::\+Menu\+Option} Interface\+::get\+Command (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_interface_aec153e75a335f7dde55ebf5ac6d878f4}{}\label{class_interface_aec153e75a335f7dde55ebf5ac6d878f4}
+This gets called to display the menu to the user and handle the latest command. As well as returning the menu selection, the function also completes the user request. In other words, if the user selects to read a point cloud from a file, this function will read the point cloud from the file and then return the command choice (Menu\+Option\+::\+Load\+Frame) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Interface.\+h\item 
+Interface.\+cpp\end{DoxyCompactItemize}

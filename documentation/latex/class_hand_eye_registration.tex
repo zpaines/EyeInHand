@@ -1,0 +1,82 @@
+\hypertarget{class_hand_eye_registration}{}\section{Hand\+Eye\+Registration Class Reference}
+\label{class_hand_eye_registration}\index{Hand\+Eye\+Registration@{Hand\+Eye\+Registration}}
+
+
+Class for computing registration between point cloud and mesh.  
+
+
+
+
+{\ttfamily \#include $<$Registration.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_hand_eye_registration_a9734ab868be5a34a95a5790f44808d1b}{load\+Mesh} (std\+::string filename)
+\item 
+vct\+Frm3 \hyperlink{class_hand_eye_registration_a311fe0a35cdc698e68e26d7b742bb21f}{compute\+Transform} (vct\+Dynamic\+Vector$<$ vct3 $>$ \&points)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_hand_eye_registration_aacb8a8fe65f148fc7b3ed77e9a6948a1}{Callback\+\_\+\+Track\+Reg\+Path} (cisst\+I\+C\+P\+::\+Callback\+Arg \&arg, void $\ast$user\+Data)
+\item 
+static void \hyperlink{class_hand_eye_registration_af3244e35eec3e903492458c40c8cfd0e}{Callback\+\_\+\+Save\+Iterations\+To\+File} (cisst\+I\+C\+P\+::\+Callback\+Arg \&arg, void $\ast$user\+Data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for computing registration between point cloud and mesh. 
+
+This class uses Seth Billing\textquotesingle{}s I\+CP Implementation to compute the transformation between a poin cloud and a mesh. The registration is fairly slow when run on meshes and point clouds of the sizes that CT scans and the Real Sense camera generate, so downsampling and mesh simplification are required. The registration is quite error prone and seems to often hit local minimum when computing the transformation. Further investigation into this is required, although it may simply be a result of attempting to register a partial section (since the camera can only see a section of the head) and the fact that the head is a fairly spherical object. 
+
+\subsection{Member Function Documentation}
+\index{Hand\+Eye\+Registration@{Hand\+Eye\+Registration}!Callback\+\_\+\+Save\+Iterations\+To\+File@{Callback\+\_\+\+Save\+Iterations\+To\+File}}
+\index{Callback\+\_\+\+Save\+Iterations\+To\+File@{Callback\+\_\+\+Save\+Iterations\+To\+File}!Hand\+Eye\+Registration@{Hand\+Eye\+Registration}}
+\subsubsection[{\texorpdfstring{Callback\+\_\+\+Save\+Iterations\+To\+File(cisst\+I\+C\+P\+::\+Callback\+Arg \&arg, void $\ast$user\+Data)}{Callback_SaveIterationsToFile(cisstICP::CallbackArg &arg, void *userData)}}]{\setlength{\rightskip}{0pt plus 5cm}void Hand\+Eye\+Registration\+::\+Callback\+\_\+\+Save\+Iterations\+To\+File (
+\begin{DoxyParamCaption}
+\item[{cisst\+I\+C\+P\+::\+Callback\+Arg \&}]{arg, }
+\item[{void $\ast$}]{user\+Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_hand_eye_registration_af3244e35eec3e903492458c40c8cfd0e}{}\label{class_hand_eye_registration_af3244e35eec3e903492458c40c8cfd0e}
+This function allows for I\+CP to output some debug information to a file \index{Hand\+Eye\+Registration@{Hand\+Eye\+Registration}!Callback\+\_\+\+Track\+Reg\+Path@{Callback\+\_\+\+Track\+Reg\+Path}}
+\index{Callback\+\_\+\+Track\+Reg\+Path@{Callback\+\_\+\+Track\+Reg\+Path}!Hand\+Eye\+Registration@{Hand\+Eye\+Registration}}
+\subsubsection[{\texorpdfstring{Callback\+\_\+\+Track\+Reg\+Path(cisst\+I\+C\+P\+::\+Callback\+Arg \&arg, void $\ast$user\+Data)}{Callback_TrackRegPath(cisstICP::CallbackArg &arg, void *userData)}}]{\setlength{\rightskip}{0pt plus 5cm}void Hand\+Eye\+Registration\+::\+Callback\+\_\+\+Track\+Reg\+Path (
+\begin{DoxyParamCaption}
+\item[{cisst\+I\+C\+P\+::\+Callback\+Arg \&}]{arg, }
+\item[{void $\ast$}]{user\+Data}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_hand_eye_registration_aacb8a8fe65f148fc7b3ed77e9a6948a1}{}\label{class_hand_eye_registration_aacb8a8fe65f148fc7b3ed77e9a6948a1}
+This function is a callback that allows for I\+CP output \index{Hand\+Eye\+Registration@{Hand\+Eye\+Registration}!compute\+Transform@{compute\+Transform}}
+\index{compute\+Transform@{compute\+Transform}!Hand\+Eye\+Registration@{Hand\+Eye\+Registration}}
+\subsubsection[{\texorpdfstring{compute\+Transform(vct\+Dynamic\+Vector$<$ vct3 $>$ \&points)}{computeTransform(vctDynamicVector< vct3 > &points)}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Frm3 Hand\+Eye\+Registration\+::compute\+Transform (
+\begin{DoxyParamCaption}
+\item[{vct\+Dynamic\+Vector$<$ vct3 $>$ \&}]{points}
+\end{DoxyParamCaption}
+)}\hypertarget{class_hand_eye_registration_a311fe0a35cdc698e68e26d7b742bb21f}{}\label{class_hand_eye_registration_a311fe0a35cdc698e68e26d7b742bb21f}
+Computes the transform using I\+CP between the point cloud and the mesh that it has previously loaded. 
+\begin{DoxyParams}{Parameters}
+{\em points} & The point cloud to compute the transformation with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the computed transformation 
+\end{DoxyReturn}
+\index{Hand\+Eye\+Registration@{Hand\+Eye\+Registration}!load\+Mesh@{load\+Mesh}}
+\index{load\+Mesh@{load\+Mesh}!Hand\+Eye\+Registration@{Hand\+Eye\+Registration}}
+\subsubsection[{\texorpdfstring{load\+Mesh(std\+::string filename)}{loadMesh(std::string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void Hand\+Eye\+Registration\+::load\+Mesh (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{filename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_hand_eye_registration_a9734ab868be5a34a95a5790f44808d1b}{}\label{class_hand_eye_registration_a9734ab868be5a34a95a5790f44808d1b}
+This function reads a mesh in from a file into a cisst\+Mesh data structure. I would have liked to have it also create the P\+D\+Tree for the mesh, but for some reason this caused memory issues and caused the program to crash. Not sure why, but it seemed like it had to do with how the P\+D\+Tree gets handled by managed ptrs. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The file to read the mesh in from. Must be formatted correctly. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Registration.\+h\item 
+Registration.\+cpp\end{DoxyCompactItemize}

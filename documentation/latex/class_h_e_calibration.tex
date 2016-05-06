@@ -1,0 +1,145 @@
+\hypertarget{class_h_e_calibration}{}\section{H\+E\+Calibration Class Reference}
+\label{class_h_e_calibration}\index{H\+E\+Calibration@{H\+E\+Calibration}}
+
+
+Class that aids in performing an Eye in Hand calibration using an Angle Bracket as the calibration object. Only static methods are implemented at the moment.  
+
+
+
+
+{\ttfamily \#include $<$H\+E\+Calibration.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+vct\+Frm3 \hyperlink{class_h_e_calibration_ab2765aa44f4e2359a67ad8e8ab61db64}{Get\+Wrist\+Camera\+Registration} ()
+\item 
+void \hyperlink{class_h_e_calibration_a26f30368c98903e7b75aaefb5f0f4038}{add\+Point\+Cloud} (cisst\+Point\+Cloud cloud)
+\item 
+void \hyperlink{class_h_e_calibration_a67724f066c95632eb50a557c9a22d5a3}{add\+Pose} (vct\+Frm3 pose)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static vct\+Frm3 \hyperlink{class_h_e_calibration_ab58622d16367aa3a095ce63e7d115e15}{read\+Object\+Pose} (std\+::string filename)
+\item 
+static std\+::vector$<$ vct\+Frm3 $>$ \hyperlink{class_h_e_calibration_a3142d195d52b7d0fba0e3c77c3f37c5f}{read\+Robot\+Poses} (std\+::string filename)
+\item 
+static vct\+Rot3 \hyperlink{class_h_e_calibration_a85aa37c2653082ffe3b6be85242d2617}{axxb} (std\+::vector$<$ vct\+Frm3 $>$ A, std\+::vector$<$ vct\+Frm3 $>$ B)
+\item 
+static vct\+Frm3 \hyperlink{class_h_e_calibration_a56ea97fc635496a57f33c573b33fd0af}{least\+Squares} (vct\+Rot3 Rx, std\+::vector$<$ vct\+Frm3 $>$ A, std\+::vector$<$ vct\+Frm3 $>$ B)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class that aids in performing an Eye in Hand calibration using an Angle Bracket as the calibration object. Only static methods are implemented at the moment. 
+
+This class is designed to preform a calibration using two sets of data. The first is a set of point clouds where each point cloud is from the Real Sense camera at a different robot pose. These point clouds should be of our calibration object, which is a large angle bracket s.\+t. there are three planes clearly visible in the point cloud (the two inside edges of the bracket and the table). However this class is not fully implemented. At the moment only the static (mathematical and file reading) methods are implemented. The processing of the point clouds to generate the poses is not yet implemented. 
+
+\subsection{Member Function Documentation}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!add\+Point\+Cloud@{add\+Point\+Cloud}}
+\index{add\+Point\+Cloud@{add\+Point\+Cloud}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{add\+Point\+Cloud(cisst\+Point\+Cloud cloud)}{addPointCloud(cisstPointCloud cloud)}}]{\setlength{\rightskip}{0pt plus 5cm}void H\+E\+Calibration\+::add\+Point\+Cloud (
+\begin{DoxyParamCaption}
+\item[{cisst\+Point\+Cloud}]{cloud}
+\end{DoxyParamCaption}
+)}\hypertarget{class_h_e_calibration_a26f30368c98903e7b75aaefb5f0f4038}{}\label{class_h_e_calibration_a26f30368c98903e7b75aaefb5f0f4038}
+Add a point cloud to the set of data for the calibration. Not yet implemented. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cloud} & the point cloud to be added \\
+\hline
+\end{DoxyParams}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!add\+Pose@{add\+Pose}}
+\index{add\+Pose@{add\+Pose}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{add\+Pose(vct\+Frm3 pose)}{addPose(vctFrm3 pose)}}]{\setlength{\rightskip}{0pt plus 5cm}void H\+E\+Calibration\+::add\+Pose (
+\begin{DoxyParamCaption}
+\item[{vct\+Frm3}]{pose}
+\end{DoxyParamCaption}
+)}\hypertarget{class_h_e_calibration_a67724f066c95632eb50a557c9a22d5a3}{}\label{class_h_e_calibration_a67724f066c95632eb50a557c9a22d5a3}
+Add a robot pose to the set of data for calibration. Not yet implemented. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pose} & the pose to be used in the calibration. \\
+\hline
+\end{DoxyParams}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!axxb@{axxb}}
+\index{axxb@{axxb}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{axxb(std\+::vector$<$ vct\+Frm3 $>$ A, std\+::vector$<$ vct\+Frm3 $>$ B)}{axxb(std::vector< vctFrm3 > A, std::vector< vctFrm3 > B)}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Rot3 H\+E\+Calibration\+::axxb (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ vct\+Frm3 $>$}]{A, }
+\item[{std\+::vector$<$ vct\+Frm3 $>$}]{B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_h_e_calibration_a85aa37c2653082ffe3b6be85242d2617}{}\label{class_h_e_calibration_a85aa37c2653082ffe3b6be85242d2617}
+Computes X that minmizes the error of AX=XB. This is done using the quaternion method as discussed in Dr. Russell Taylor\textquotesingle{}s lectures. 
+\begin{DoxyParams}{Parameters}
+{\em A\mbox{[}in\mbox{]}} & The set of poses representing the changes in position of the robot wrist \\
+\hline
+{\em B\mbox{[}in\mbox{]}} & The set of poses representing the changes in position of the calibration object relative to the camera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The best solution for the rotational component of the transformation from the wrist to the camera 
+\end{DoxyReturn}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!Get\+Wrist\+Camera\+Registration@{Get\+Wrist\+Camera\+Registration}}
+\index{Get\+Wrist\+Camera\+Registration@{Get\+Wrist\+Camera\+Registration}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{Get\+Wrist\+Camera\+Registration()}{GetWristCameraRegistration()}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Frm3 H\+E\+Calibration\+::\+Get\+Wrist\+Camera\+Registration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_h_e_calibration_ab2765aa44f4e2359a67ad8e8ab61db64}{}\label{class_h_e_calibration_ab2765aa44f4e2359a67ad8e8ab61db64}
+Returns the transformation between the wrist and the camera, assuming that the class is already populated with data. Not yet implemented. \index{H\+E\+Calibration@{H\+E\+Calibration}!least\+Squares@{least\+Squares}}
+\index{least\+Squares@{least\+Squares}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{least\+Squares(vct\+Rot3 Rx, std\+::vector$<$ vct\+Frm3 $>$ A, std\+::vector$<$ vct\+Frm3 $>$ B)}{leastSquares(vctRot3 Rx, std::vector< vctFrm3 > A, std::vector< vctFrm3 > B)}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Frm3 H\+E\+Calibration\+::least\+Squares (
+\begin{DoxyParamCaption}
+\item[{vct\+Rot3}]{Rx, }
+\item[{std\+::vector$<$ vct\+Frm3 $>$}]{A, }
+\item[{std\+::vector$<$ vct\+Frm3 $>$}]{B}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_h_e_calibration_a56ea97fc635496a57f33c573b33fd0af}{}\label{class_h_e_calibration_a56ea97fc635496a57f33c573b33fd0af}
+Solves the least squares equation to solve for the translational component of F\+\_\+w. 
+\begin{DoxyParams}{Parameters}
+{\em Rx\mbox{[}in\mbox{]}} & the rotational component of F\+\_\+w. This can be solved for using the axxb method \\
+\hline
+{\em A\mbox{[}in\mbox{]}} & The set of poses representing the changes in position of the robot wrist \\
+\hline
+{\em B\mbox{[}in\mbox{]}} & The set of poses representing the changes in position of the calibration object relative to the camera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The full frame transformation (with param Rx as the rotational component) 
+\end{DoxyReturn}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!read\+Object\+Pose@{read\+Object\+Pose}}
+\index{read\+Object\+Pose@{read\+Object\+Pose}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{read\+Object\+Pose(std\+::string filename)}{readObjectPose(std::string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Frm3 H\+E\+Calibration\+::read\+Object\+Pose (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_h_e_calibration_ab58622d16367aa3a095ce63e7d115e15}{}\label{class_h_e_calibration_ab58622d16367aa3a095ce63e7d115e15}
+Reads in a pose from a file. The format of the file must be R P where R is a 3x3 rotation matrix and P is a column transformation matrix. The file as a whole should be 3 rows with each row containing 4 numbers. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & the name of the file containing the pose. Must be properly formatted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pose read in from the file. 
+\end{DoxyReturn}
+\index{H\+E\+Calibration@{H\+E\+Calibration}!read\+Robot\+Poses@{read\+Robot\+Poses}}
+\index{read\+Robot\+Poses@{read\+Robot\+Poses}!H\+E\+Calibration@{H\+E\+Calibration}}
+\subsubsection[{\texorpdfstring{read\+Robot\+Poses(std\+::string filename)}{readRobotPoses(std::string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ vct\+Frm3 $>$ H\+E\+Calibration\+::read\+Robot\+Poses (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_h_e_calibration_a3142d195d52b7d0fba0e3c77c3f37c5f}{}\label{class_h_e_calibration_a3142d195d52b7d0fba0e3c77c3f37c5f}
+Reads in the set of robot poses from a file. Each row of this file must be P Q where P is a 1x3 space separated matrix representing the position of the robot at the time, and Q is a space separated quaternion representing the rotational pose of the robot at the time. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & the name of the file containing the poses \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector containing the poses read in from the file. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+H\+E\+Calibration.\+h\item 
+H\+E\+Calibration.\+cpp\end{DoxyCompactItemize}

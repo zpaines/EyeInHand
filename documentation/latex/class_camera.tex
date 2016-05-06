@@ -1,0 +1,80 @@
+\hypertarget{class_camera}{}\section{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+Manages the interface with the Intel Real Sense \hyperlink{class_camera}{Camera}.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+Inheritance diagram for Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_camera_a83ca54501c968dae469459fb0ad78c54}{S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON} \{ {\bfseries S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+SW} = 0, 
+{\bfseries S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+HW}, 
+{\bfseries S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+N\+O\+NE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_camera_a01f94c3543f56ede7af49dc778f19331}{Camera} ()
+\item 
+void \hyperlink{class_camera_aec22c94e7bcc461154085ef31c5de125}{get\+Frame} (vct\+Dynamic\+Vector$<$ vct3 $>$ \&points)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+P\+X\+C\+Sense\+Manager $\ast$ {\bfseries sm}\hypertarget{class_camera_aac4ebf35b8a29c3c233a12f1e6294292}{}\label{class_camera_aac4ebf35b8a29c3c233a12f1e6294292}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages the interface with the Intel Real Sense \hyperlink{class_camera}{Camera}. 
+
+This class uses the windows R\+S\+S\+DK to configure and get points clouds from the camera. It streams in a resolution of 640x480 with a frame rate of 30. 
+
+\subsection{Member Enumeration Documentation}
+\index{Camera@{Camera}!S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON@{S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON}}
+\index{S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON@{S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON}{SYNC_OPTION}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Camera\+::\+S\+Y\+N\+C\+\_\+\+O\+P\+T\+I\+ON}}\hypertarget{class_camera_a83ca54501c968dae469459fb0ad78c54}{}\label{class_camera_a83ca54501c968dae469459fb0ad78c54}
+Enum for how the sync the streams. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{Camera()}{Camera()}}]{\setlength{\rightskip}{0pt plus 5cm}Camera\+::\+Camera (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_a01f94c3543f56ede7af49dc778f19331}{}\label{class_camera_a01f94c3543f56ede7af49dc778f19331}
+Basic constructor. Doesn\textquotesingle{}t do anything. All initialization occurs when \hyperlink{class_camera_aec22c94e7bcc461154085ef31c5de125}{get\+Frame()} is called to ensure that changes in camera in between calls don\textquotesingle{}t cause problems. 
+
+\subsection{Member Function Documentation}
+\index{Camera@{Camera}!get\+Frame@{get\+Frame}}
+\index{get\+Frame@{get\+Frame}!Camera@{Camera}}
+\subsubsection[{\texorpdfstring{get\+Frame(vct\+Dynamic\+Vector$<$ vct3 $>$ \&points)}{getFrame(vctDynamicVector< vct3 > &points)}}]{\setlength{\rightskip}{0pt plus 5cm}void Camera\+::get\+Frame (
+\begin{DoxyParamCaption}
+\item[{vct\+Dynamic\+Vector$<$ vct3 $>$ \&}]{points}
+\end{DoxyParamCaption}
+)}\hypertarget{class_camera_aec22c94e7bcc461154085ef31c5de125}{}\label{class_camera_aec22c94e7bcc461154085ef31c5de125}
+Gets a point cloud from the camera and loads it into the array. This is done using the P\+X\+C\+Projection mapping, which maps the pixelX, pixelY, depth points to x,y,z vertices. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em points} & The vector of points to load the point cloud into \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Camera.\+h\item 
+Camera.\+cpp\end{DoxyCompactItemize}

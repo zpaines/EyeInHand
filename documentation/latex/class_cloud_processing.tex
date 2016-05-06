@@ -1,0 +1,142 @@
+\hypertarget{class_cloud_processing}{}\section{Cloud\+Processing Class Reference}
+\label{class_cloud_processing}\index{Cloud\+Processing@{Cloud\+Processing}}
+
+
+Handles the processing of point clouds. All functions are static and the class has no member variables.  
+
+
+
+
+{\ttfamily \#include $<$Cloud\+Processing.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_cloud_processing_aef2ec63d577ce493f24c69e2a6d68ca7}{T\+X\+Tto\+P\+CD} (std\+::string filename)
+\item 
+static void \hyperlink{class_cloud_processing_a8a3e98139d08714e346ccfe0d8cbb240}{view\+Clouds\+From\+Files} (std\+::vector$<$ std\+::string $>$ filenames)
+\item 
+static vct\+Dynamic\+Vector$<$ vct3 $>$ \hyperlink{class_cloud_processing_a87725c89d18cdb9f31ecd5ccbe3daf87}{P\+C\+Lto\+C\+I\+S\+ST} (pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr cloud)
+\item 
+static pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr \hyperlink{class_cloud_processing_a8236eb8ff46125992a136661ca26051d}{C\+I\+S\+S\+Tto\+P\+CL} (vct\+Dynamic\+Vector$<$ vct3 $>$ points)
+\item 
+static void \hyperlink{class_cloud_processing_aed3aed29847bc8eaca0e68994abf7f01}{view\+Clouds} (std\+::vector$<$ pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$ $>$ $\ast$clouds)
+\item 
+static pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr \hyperlink{class_cloud_processing_ae58e471bf180c4ddda64c02f69fee331}{downsample\+\_\+cloud} (pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr cloud, float leaf\+\_\+size)
+\item 
+static pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr \hyperlink{class_cloud_processing_a41c6b9aa981bd642f22d4272a2dc7666}{remove\+\_\+plane} (pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr cloud, float tolerance)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Handles the processing of point clouds. All functions are static and the class has no member variables. 
+
+This class handles all interfacing with P\+CL and manages the visualization, downsampling, and segmentation of point clouds. All methods are static. 
+
+\subsection{Member Function Documentation}
+\index{Cloud\+Processing@{Cloud\+Processing}!C\+I\+S\+S\+Tto\+P\+CL@{C\+I\+S\+S\+Tto\+P\+CL}}
+\index{C\+I\+S\+S\+Tto\+P\+CL@{C\+I\+S\+S\+Tto\+P\+CL}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{C\+I\+S\+S\+Tto\+P\+C\+L(vct\+Dynamic\+Vector$<$ vct3 $>$ points)}{CISSTtoPCL(vctDynamicVector< vct3 > points)}}]{\setlength{\rightskip}{0pt plus 5cm}pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr Cloud\+Processing\+::\+C\+I\+S\+S\+Tto\+P\+CL (
+\begin{DoxyParamCaption}
+\item[{vct\+Dynamic\+Vector$<$ vct3 $>$}]{points}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_a8236eb8ff46125992a136661ca26051d}{}\label{class_cloud_processing_a8236eb8ff46125992a136661ca26051d}
+Does the inverse function as P\+C\+Lto\+C\+I\+S\+ST 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em points} & the list of points to be converted into a P\+CL cloud \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a boost managed ptr to the cloud, which now stores the points that were passed in with the vct\+Dynamic\+Vector 
+\end{DoxyReturn}
+\index{Cloud\+Processing@{Cloud\+Processing}!downsample\+\_\+cloud@{downsample\+\_\+cloud}}
+\index{downsample\+\_\+cloud@{downsample\+\_\+cloud}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{downsample\+\_\+cloud(pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+Y\+Z $>$\+::\+Ptr cloud, float leaf\+\_\+size)}{downsample_cloud(pcl::PointCloud< pcl::PointXYZ >::Ptr cloud, float leaf_size)}}]{\setlength{\rightskip}{0pt plus 5cm}pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr Cloud\+Processing\+::downsample\+\_\+cloud (
+\begin{DoxyParamCaption}
+\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr}]{cloud, }
+\item[{float}]{leaf\+\_\+size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_ae58e471bf180c4ddda64c02f69fee331}{}\label{class_cloud_processing_ae58e471bf180c4ddda64c02f69fee331}
+This function downsamples the given point cloud by constructing a KD tree where the dimensions of the bounding box of each leaf node is leaf\+\_\+size. It then makes a new cloud where the points are the centroids of all the leaf nodes from the KD tree. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cloud} & The cloud to downsample \mbox{[}in\mbox{]} The size of the bounding box for the leaf\+\_\+nodes. Units are millimetres \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new cloud that is the \char`\"{}downsampled\char`\"{} version of the original 
+\end{DoxyReturn}
+\index{Cloud\+Processing@{Cloud\+Processing}!P\+C\+Lto\+C\+I\+S\+ST@{P\+C\+Lto\+C\+I\+S\+ST}}
+\index{P\+C\+Lto\+C\+I\+S\+ST@{P\+C\+Lto\+C\+I\+S\+ST}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{P\+C\+Lto\+C\+I\+S\+S\+T(pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+Y\+Z $>$\+::\+Ptr cloud)}{PCLtoCISST(pcl::PointCloud< pcl::PointXYZ >::Ptr cloud)}}]{\setlength{\rightskip}{0pt plus 5cm}vct\+Dynamic\+Vector$<$ vct3 $>$ Cloud\+Processing\+::\+P\+C\+Lto\+C\+I\+S\+ST (
+\begin{DoxyParamCaption}
+\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr}]{cloud}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_a87725c89d18cdb9f31ecd5ccbe3daf87}{}\label{class_cloud_processing_a87725c89d18cdb9f31ecd5ccbe3daf87}
+Converts a point cloud from the P\+CL format to be stored as vct\+Dynamic\+Vector$<$vct3$>$ list of points. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cloud} & A boost managed ptr to the point cloud to be converted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This function returns the list of points that the cloud contained, but stored as vct\+Dynamic\+Vector$<$vct3$>$ 
+\end{DoxyReturn}
+\index{Cloud\+Processing@{Cloud\+Processing}!remove\+\_\+plane@{remove\+\_\+plane}}
+\index{remove\+\_\+plane@{remove\+\_\+plane}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{remove\+\_\+plane(pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+Y\+Z $>$\+::\+Ptr cloud, float tolerance)}{remove_plane(pcl::PointCloud< pcl::PointXYZ >::Ptr cloud, float tolerance)}}]{\setlength{\rightskip}{0pt plus 5cm}pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr Cloud\+Processing\+::remove\+\_\+plane (
+\begin{DoxyParamCaption}
+\item[{pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$\+::Ptr}]{cloud, }
+\item[{float}]{tolerance}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_a41c6b9aa981bd642f22d4272a2dc7666}{}\label{class_cloud_processing_a41c6b9aa981bd642f22d4272a2dc7666}
+Removes a plane from the given cloud using the R\+A\+N\+S\+AC algorithm and P\+CL\textquotesingle{}s S\+A\+C\+Segmentation function. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cloud} & The point cloud that has the plane to be removed \\
+\hline
+\mbox{\tt in}  & {\em tolerance} & The tolerance for the plane. In other words points that lie within \char`\"{}tolerance\char`\"{} of the computed plane will be removed from the cloud. Unit is mm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new cloud with the plane removed 
+\end{DoxyReturn}
+\index{Cloud\+Processing@{Cloud\+Processing}!T\+X\+Tto\+P\+CD@{T\+X\+Tto\+P\+CD}}
+\index{T\+X\+Tto\+P\+CD@{T\+X\+Tto\+P\+CD}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{T\+X\+Tto\+P\+C\+D(std\+::string filename)}{TXTtoPCD(std::string filename)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cloud\+Processing\+::\+T\+X\+Tto\+P\+CD (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_aef2ec63d577ce493f24c69e2a6d68ca7}{}\label{class_cloud_processing_aef2ec63d577ce493f24c69e2a6d68ca7}
+Converts a .txt file where the format is x y z on each line to a pcd file with the proper header. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & the name of the file relative to the working directory of the project to convert to pcd. Must be properly formatted. \\
+\hline
+\end{DoxyParams}
+\index{Cloud\+Processing@{Cloud\+Processing}!view\+Clouds@{view\+Clouds}}
+\index{view\+Clouds@{view\+Clouds}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{view\+Clouds(std\+::vector$<$ pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+Y\+Z $>$ $>$ $\ast$clouds)}{viewClouds(std::vector< pcl::PointCloud< pcl::PointXYZ > > *clouds)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cloud\+Processing\+::view\+Clouds (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ pcl\+::\+Point\+Cloud$<$ pcl\+::\+Point\+X\+YZ $>$ $>$ $\ast$}]{clouds}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_aed3aed29847bc8eaca0e68994abf7f01}{}\label{class_cloud_processing_aed3aed29847bc8eaca0e68994abf7f01}
+Visualizes an array of clouds. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em clouds} & A pointer to the vector of clouds to be visualized. \\
+\hline
+\end{DoxyParams}
+\index{Cloud\+Processing@{Cloud\+Processing}!view\+Clouds\+From\+Files@{view\+Clouds\+From\+Files}}
+\index{view\+Clouds\+From\+Files@{view\+Clouds\+From\+Files}!Cloud\+Processing@{Cloud\+Processing}}
+\subsubsection[{\texorpdfstring{view\+Clouds\+From\+Files(std\+::vector$<$ std\+::string $>$ filenames)}{viewCloudsFromFiles(std::vector< std::string > filenames)}}]{\setlength{\rightskip}{0pt plus 5cm}void Cloud\+Processing\+::view\+Clouds\+From\+Files (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::string $>$}]{filenames}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_cloud_processing_a8a3e98139d08714e346ccfe0d8cbb240}{}\label{class_cloud_processing_a8a3e98139d08714e346ccfe0d8cbb240}
+Visualizes clouds read in from files. Files must be properly formatted P\+CD files. There is no set limit on the number of files but the visualizer can only handle so many. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filenames} & the list of filenames relative to the working directory to read the point clouds from \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cloud\+Processing.\+h\item 
+Cloud\+Processing.\+cpp\end{DoxyCompactItemize}
