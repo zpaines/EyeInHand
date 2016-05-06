@@ -26,12 +26,12 @@ To read in a point cloud from a file, select Read Point Cloud from File and ente
 
 ### Mesh from File
 Select Load Mesh File for Registration and enter the path to a cisst mesh file. There is no particular file extension necessary, but the contents of the file should be as follows:
-'POINTS #points
+`POINTS #points
 ...
 VERTICES #vertices
 ...
 NORMALS #normals
-...'
+...`
 
 ### Perform Registration
 To perform a registration, first ensure that you have both a point cloud and a mesh file loaded. Then, select Register Point Cloud to Mesh. This will run the ICP algorithm and also apply the obtained frame transformation to the current working point cloud; however, it will write this tranformed point cloud to a separate cloud and will NOT overwrite the current working point cloud.
