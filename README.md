@@ -6,7 +6,7 @@ To use any of this code you are going to need the following:
   1. [cisstICP by Seth Billings](https://git.lcsr.jhu.edu/sbillin3/cissticp)
   2. [The cisst Libary](https://github.com/jhu-cisst/cisst)
   2. [Point Cloud Library](http://pointclouds.org/downloads/)
-  3. [Intel RS SDK](https://software.intel.com/en-us/intel-realsense-sdk)
+  3. [Intel RealSense SDK](https://software.intel.com/en-us/intel-realsense-sdk)
 
 ### Hardware
 This program currently only supports the Intel RealSense camera. Plug the camera into your computer's USB port to use any camera-based features.
