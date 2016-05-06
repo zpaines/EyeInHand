@@ -20,6 +20,7 @@ For further information on the structure of the code, please see [our documentat
 
 Information Flow
 ==============
+The following shows the flow of information and their data types through a typical use of this program.
 
 ![](images/design_flow.png?raw=true)
 
