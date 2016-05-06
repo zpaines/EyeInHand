@@ -1,3 +1,7 @@
+Full Documentation
+=======
+For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
+
 Getting Started
 =====
 
@@ -85,7 +89,4 @@ The HECalibration class facilitates the calibration of the camera to an angle br
 ### Interface
 The Interface class is the driver of this program. It handles all user input and terminal output and parses them into the appropriate calls to methods in the other classes.
 
-
-### Full Documentation
-For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
 
