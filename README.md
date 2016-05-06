@@ -1,3 +1,5 @@
+[](images/design_flow.png?raw=true)
+
 Getting Started
 =====
 
@@ -14,6 +16,8 @@ This program currently only supports the Intel RealSense camera. Plug the camera
 ### Running the Code
 To run the program, simply build and run the main.cpp file. A text-based menu should pop up, and you're ready to go!
 
+### Documentation
+For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
 
 Menu Options
 ========
