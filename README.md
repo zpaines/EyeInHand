@@ -1,4 +1,4 @@
-[](images/design_flow.png?raw=true)
+![](images/design_flow.png?raw=true)
 
 Getting Started
 =====
