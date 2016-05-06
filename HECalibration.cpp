@@ -91,7 +91,7 @@ vctFrm3 HECalibration::leastSquares(vctRot3 Rx, std::vector<vctFrm3> A, std::vec
 		LeastSquareB.block(k * 3, 0, 3, 1) = rightSide;
 
 	}
-	Eigen::MatrixXd px = LeastSquareA.jacobiSvd(Eigen::ComputeThinU | Eigen::ComputeThinV).solve(LeastSquareB);
+	Eigen::MatrixXd px = LeastSquareA.jacobiSvd(Eigen::ComputeFullU | Eigen::ComputeFullV).solve(LeastSquareB);
 	vct3 translation(px(0, 0), px(1, 0), px(2, 0));
 	vctFrm3 transformation(Rx, translation);
 	return transformation;

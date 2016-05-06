@@ -76,6 +76,7 @@ private:
 	std::string pointCloudFilename;
 	std::string meshFilename;
 	void FRegToFile(std::string filename);
+	static double fRand(double fMin, double fMax);
 	const std::string menu =
 		"1. Take Point Cloud from Camera\n2. Read Point Cloud from File\n3. Load Mesh File for Registration\n4. Register Point Cloud to Mesh\n5. Test AX = XB Calibration\n6. Visualize Point Cloud and Transformed Point Cloud\n7. Write Point Cloud to File\n8. Write Transformed Point Cloud to File\n9. Write F_Reg to file\n10. Downsample Cloud\n11. Remove Plane\n12. Quit\n";
 	

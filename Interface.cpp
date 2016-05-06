@@ -139,32 +139,28 @@ void Interface::handleRegistration() {
 	std::cout << "You may wish to load a point cloud representation of the mesh so that you can visualize how successful the registration was\n";
 }
 
+double Interface::fRand(double fMin, double fMax)
+{
+	double f = (double)rand() / RAND_MAX;
+	return fMin + f * (fMax - fMin);
+}
+
 void Interface::testCalibration() {
-	double rots[] = { -2, .5, -1, .2, 0.7, 0};
-	vct3 PxReal(2, 3, 2);
-	vct3 axisY(0, 1, 0);
-	axisY.NormalizedSelf();
-	vct3 axisX(1, 0, 0);
-	vct3 axisWrist(2, -1, .5);
+	vct3 axisWrist(fRand(-1, 1), fRand(-1, 1), fRand(-1, 1));
 	axisWrist.NormalizedSelf();
-	vct3 axisZ(0, 0, 1);
-	vct3 axisXY(1, 1, 0);
-	axisXY.NormalizedSelf();
-	vct3 axisYZ(0, 1, 1);
-	axisYZ.NormalizedSelf();
-	vct3 axisXYZ(1, 1, 1);
-	axisXYZ.NormalizedSelf();
-	vct3 axes[] = { axisY, axisX, axisZ };
-	vctRot3 rotation(vctAxAnRot3(axisWrist, .5)); //was 4
-	vctQuatRot3 quat;// = vctQuatRot3::Identity();
+	vct3 PxReal(fRand(-10, 10), fRand(-10, 10), fRand(-10, 10));
+	vctRot3 rotation(vctAxAnRot3(axisWrist, fRand(-2, 2))); 
+	vctQuatRot3 quat;
 	quat.From(rotation);
 	vctFrm3 F_w(rotation, PxReal);
 	std::vector<vctFrm3> A;
 	std::vector<vctFrm3> B;
 	for (int k = 0; k < 3; k++) {
-		double angleRot = rots[k];
-		vctRot3 rot(vctAxAnRot3(axes[k], angleRot));
-		vct3 Pak(rand() % 3, rand() % 3, rand() % 3);
+		double angleRot = fRand(-2, 2);
+		vct3 ax(fRand(-1, 1), fRand(-1, 1), fRand(-1, 1));
+		ax.NormalizedSelf();
+		vctRot3 rot(vctAxAnRot3(ax, angleRot));
+		vct3 Pak(fRand(-3, 3), fRand(-3, 3), fRand(-3, 3));
 		vctFrm3 A_k(rot, Pak);
 		vctFrm3 B_k = F_w.Inverse() * A_k * F_w;
 		A.push_back(A_k);
@@ -172,8 +168,9 @@ void Interface::testCalibration() {
 	}
 
 	vctRot3 result = HECalibration::axxb(A, B);
-	std::cout << "Generated R_w\n" << F_w.Rotation() << "\n\n";
-	std::cout << "Calculated R_w\n" << result << "\n";
+	vctFrm3 res = HECalibration::leastSquares(result, A, B);
+	std::cout << "Generated F_w\n" << F_w << "\n\n";
+	std::cout << "Calculated F_w\n" << res << "\n";
 
 }
 
