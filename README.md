@@ -1,5 +1,3 @@
-![](images/design_flow.png?raw=true)
-
 Getting Started
 =====
 
@@ -18,6 +16,12 @@ To run the program, simply build and run the main.cpp file. A text-based menu sh
 
 ### Documentation
 For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
+
+
+Information Flow
+==============
+
+![](images/design_flow.png?raw=true)
 
 Menu Options
 ========
