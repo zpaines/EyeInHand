@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>REMS Eye In Hand Registration: Main Page</title>
+<title>REMS Eye In Hand Registration: Getting Started</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -76,10 +76,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">REMS Eye In Hand Registration Documentation</div>  </div>
+<div class="title">Getting Started </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><h3>Dependencies</h3>
+<p>To use any of this code you are going to need the following:</p><ol type="1">
+<li><a href="https://git.lcsr.jhu.edu/sbillin3/cissticp">cisstICP by Seth Billings</a></li>
+<li><a href="https://github.com/jhu-cisst/cisst">The cisst Libary</a></li>
+</ol>
+<ol type="1">
+<li><a href="http://pointclouds.org/downloads/">Point Cloud Library</a></li>
+<li><a href="https://software.intel.com/en-us/intel-realsense-sdk">Intel RS SDK</a></li>
+</ol>
+<h3>Hardware</h3>
+<p>This program currently only supports the Intel RealSense camera. Plug the camera into your computer's USB port to use any camera-based features.</p>
+<h3>Running the Code</h3>
+<p>To run the program, simply build and run the main.cpp file. A text-based menu should pop up, and you're ready to go!</p>
+<h1>Information Flow </h1>
+<p>The following shows the flow of information and their data types through a typical use of this program.</p>
+<div class="image">
+<img src="images/design_flow.png?raw=true" />
+</div>
+<h1>Menu Options </h1>
+<h3>Point Cloud from <a class="el" href="class_camera.html" title="Manages the interface with the Intel Real Sense Camera. ">Camera</a></h3>
+<p>Use the menu option Take Point Cloud from <a class="el" href="class_camera.html" title="Manages the interface with the Intel Real Sense Camera. ">Camera</a> to use the input camera to capture a depth image and turn the image into a PCL Point Cloud. This will then load this point cloud as the current working point cloud.</p>
+<h3>Point Cloud from File</h3>
+<p>To read in a point cloud from a file, select Read Point Cloud from File and enter the path to a .pcd file. This will load the point cloud as the current working point cloud.</p>
+<h3>Mesh from File</h3>
+<p>Select Load Mesh File for Registration and enter the path to a cisst mesh file. There is no particular file extension necessary, but the contents of the file should be as follows:</p>
+<p>`POINTS #points ... VERTICES #vertices ... NORMALS #normals ...`</p>
+<h3>Perform Registration</h3>
+<p>To perform a registration, first ensure that you have both a point cloud and a mesh file loaded. Then, select Register Point Cloud to Mesh. This will run the ICP algorithm and also apply the obtained frame transformation to the current working point cloud; however, it will write this tranformed point cloud to a separate cloud and will NOT overwrite the current working point cloud.</p>
+<h3>Test Calibration</h3>
+<p>To test the AX = XB calibration algorithm, select Test AX = XB Calibration.</p>
+<h3>Compare Clouds</h3>
+<p>To visualize both the original point cloud and the transformed point cloud, perform a registration, and then select Visualize Point Cloud and Transformed Point Cloud. This will open up a visualizer with both clouds loaded.</p>
+<h3>Save Point Cloud</h3>
+<p>To save the current working point cloud, select Write Point Cloud to File, and enter your desired path and filename to save the cloud as a PCD file.</p>
+<h3>Save Transformed Point Cloud</h3>
+<p>To save a transformed point cloud, perform a registration, then select Write Transformed Point Cloud to File. Enter your desired path and filename to save the transformed cloud as a PCD.</p>
+<h3>Save Frame Transformation</h3>
+<p>To save a frame transformation, perform a registration, and then select Save F_reg to File. Enter your desired path and filename to save the frame transformation output by the registration.</p>
+<h3>Downsampling Clouds</h3>
+<p>To downsample the currently loaded cloud, select Downsample Cloud. This will prompt you for a leaf size for your KD Tree. Once you enter a number, the program will inform you by how many points your current cloud has been simplified.</p>
+<h3>Plane Segmentation</h3>
+<p>To remove the background plane of a given point cloud, select Remove Plane. This will remove the largest plane in your current working point cloud (which is usally a surface behind your desired point cloud), and overwrite the new point cloud as the current working point cloud.</p>
+<h3>Quit</h3>
+<p>To exit the program, select Quit.</p>
+<h1>Class Structure </h1>
+<h3><a class="el" href="class_camera.html" title="Manages the interface with the Intel Real Sense Camera. ">Camera</a></h3>
+<p>The <a class="el" href="class_camera.html" title="Manages the interface with the Intel Real Sense Camera. ">Camera</a> class manages all interactions with the Intel RealSense SDK. It is used to obtain raw point cloud data from the physical camera.</p>
+<h3><a class="el" href="class_cloud_processing.html" title="Handles the processing of point clouds. All functions are static and the class has no member variable...">CloudProcessing</a></h3>
+<p>The CloudPRocessing class deals with all processing and visualizations of the point clouds. It also manages loading and saving these point clouds.</p>
+<h3><a class="el" href="class_hand_eye_registration.html" title="Class for computing registration between point cloud and mesh. ">HandEyeRegistration</a></h3>
+<p>The <a class="el" href="class_hand_eye_registration.html" title="Class for computing registration between point cloud and mesh. ">HandEyeRegistration</a> class computes registrations between point clouds and meshes. It also handles the loading of meshes. It currently uses cisstICP code to perform the registration, but this is subject to change.</p>
+<h3><a class="el" href="class_h_e_calibration.html" title="Class that aids in performing an Eye in Hand calibration using an Angle Bracket as the calibration ob...">HECalibration</a></h3>
+<p>The <a class="el" href="class_h_e_calibration.html" title="Class that aids in performing an Eye in Hand calibration using an Angle Bracket as the calibration ob...">HECalibration</a> class facilitates the calibration of the camera to an angle bracket calibration object. It has methods to read robot poses and solve an AX = XB system of equations. This class currently is not fully functional and will hopefully be updated with later patches.</p>
+<h3><a class="el" href="class_interface.html" title="Driver class for the REMS Eye in Hand Registration Package. ">Interface</a></h3>
+<p>The <a class="el" href="class_interface.html" title="Driver class for the REMS Eye in Hand Registration Package. ">Interface</a> class is the driver of this program. It handles all user input and terminal output and parses them into the appropriate calls to methods in the other classes.</p>
+<h3>Full Documentation</h3>
+<p>For further information on the structure of the code, please see <a href="http://zpaines.github.io/EyeInHand/annotated.html">our documentation</a>. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
