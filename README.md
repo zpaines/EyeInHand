@@ -14,9 +14,6 @@ This program currently only supports the Intel RealSense camera. Plug the camera
 ### Running the Code
 To run the program, simply build and run the main.cpp file. A text-based menu should pop up, and you're ready to go!
 
-### Documentation
-For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
-
 
 Information Flow
 ==============
@@ -47,7 +44,7 @@ NORMALS #normals
 To perform a registration, first ensure that you have both a point cloud and a mesh file loaded. Then, select Register Point Cloud to Mesh. This will run the ICP algorithm and also apply the obtained frame transformation to the current working point cloud; however, it will write this tranformed point cloud to a separate cloud and will NOT overwrite the current working point cloud.
 
 ### Test Calibration
-To test the AX=XB calibration algorithm, select Test AX = XB Calibration.
+To test the AX = XB calibration algorithm, select Test AX = XB Calibration.
 
 ### Compare Clouds
 To visualize both the original point cloud and the transformed point cloud, perform a registration, and then select Visualize Point Cloud and Transformed Point Cloud. This will open up a visualizer with both clouds loaded.
@@ -69,3 +66,26 @@ To remove the background plane of a given point cloud, select Remove Plane. This
 
 ### Quit
 To exit the program, select Quit.
+
+Class Structure
+===========
+
+### Camera
+The Camera class manages all interactions with the Intel RealSense SDK. It is used to obtain raw point cloud data from the physical camera.
+
+### CloudProcessing
+The CloudPRocessing class deals with all processing and visualizations of the point clouds. It also manages loading and saving these point clouds.
+
+### HandEyeRegistration
+The HandEyeRegistration class computes registrations between point clouds and meshes. It also handles the loading of meshes. It currently uses cisstICP code to perform the registration, but this is subject to change.
+
+### HECalibration
+The HECalibration class facilitates the calibration of the camera to an angle bracket calibration object. It has methods to read robot poses and solve an AX = XB system of equations. This class currently is not fully functional and will hopefully be updated with later patches.
+
+### Interface
+The Interface class is the driver of this program. It handles all user input and terminal output and parses them into the appropriate calls to methods in the other classes.
+
+
+### Full Documentation
+For further information on the structure of the code, please see [our documentation](http://zpaines.github.io/EyeInHand/annotated.html).
+
