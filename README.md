@@ -26,11 +26,17 @@ To read in a point cloud from a file, select Read Point Cloud from File and ente
 
 ### Mesh from File
 Select Load Mesh File for Registration and enter the path to a cisst mesh file. There is no particular file extension necessary, but the contents of the file should be as follows:
+
 `POINTS #points
+
 ...
+
 VERTICES #vertices
+
 ...
+
 NORMALS #normals
+
 ...`
 
 ### Perform Registration
